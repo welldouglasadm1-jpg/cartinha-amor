@@ -1,97 +1,96 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Minha Cartinha de Amor</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Sempre Seu, Well 💍</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: #fdfdfd;
+        font-family: "Cormorant Garamond", serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        text-align: center;
+        overflow: hidden;
+    }
+
+    .container {
+        max-width: 800px;
+        padding: 40px;
+        background: rgba(255, 255, 255, 0.7);
+        border-radius: 20px;
+        box-shadow: 0 0 50px rgba(0,0,0,0.15);
+        backdrop-filter: blur(10px);
+    }
+
+    h1 {
+        font-size: 3rem;
+        font-family: "Dancing Script", cursive;
+        margin-bottom: 20px;
+        color: #222;
+        text-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+
+    p {
+        font-size: 1.4rem;
+        line-height: 1.5;
+        color: #444;
+        margin-bottom: 30px;
+        font-family: "Cormorant Garamond", serif;
+    }
+
+    .assinatura {
+        font-family: "Dancing Script", cursive;
+        font-size: 2rem;
+        margin-top: 30px;
+        opacity: 0.8;
+    }
+
+    audio {
+        width: 100%;
+        margin-top: 25px;
+    }
+</style>
 
 <!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Cormorant+Garamond:wght@300;400&display=swap" rel="stylesheet">
 
-<style>
-  body {
-    margin: 0;
-    padding: 0;
-    background: #f5f3f7;
-    font-family: "Inter", sans-serif;
-    color: #333;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .card {
-    width: 100%;
-    max-width: 900px;
-    padding: 60px 50px;
-    background: #ffffff;
-    border-radius: 28px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.12);
-    box-sizing: border-box;
-    text-align: center;
-  }
-
-  h1 {
-    font-family: "Great Vibes", cursive;
-    font-size: 60px;
-    margin: 0;
-    color: #222;
-  }
-
-  p.msg {
-    margin-top: 35px;
-    font-size: 22px;
-    line-height: 1.65;
-    padding: 0 10px;
-  }
-
-  .photos {
-    display: flex;
-    gap: 24px;
-    margin-top: 45px;
-    justify-content: center;
-  }
-
-  .photos img {
-    width: 47%;
-    border-radius: 18px;
-    object-fit: cover;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-  }
-
-  .footer {
-    margin-top: 55px;
-    font-size: 32px;
-    font-family: "Great Vibes", cursive;
-    color: #222;
-    opacity: 0;
-    animation: fadeIn 2.5s ease forwards 1.5s;
-  }
-
-  @keyframes fadeIn {
-    to { opacity: 1; }
-  }
-</style>
 </head>
-
 <body>
 
-  <div class="card">
-    <h1>Para o meu amor</h1>
+<div class="container">
+    <h1>Para Sempre Seu 💍</h1>
 
-    <p class="msg">
-      Você é a pessoa com quem eu quero ter um milhão de aventuras, dançar na cozinha,
-      assistir ao pôr do sol, fazer café da manhã juntos aos domingos de manhã, ir à igreja
-      lado a lado, orar juntos com propósito, correr para o seu abraço depois de um longo
-      dia de trabalho, conquistar os meus maiores sonhos ao seu lado, e me apaixonar
-      novamente por você todos os dias da minha vida.
+    <p>
+        Nada no mundo explica o que sinto por você.<br>
+        É simples, profundo, e ao mesmo tempo imenso demais.<br>
+        Cada detalhe seu se tornou parte do que sou hoje.<br>
+        E se existe algo que quero para sempre…<br>
+        É você.
     </p>
 
-    <div class="photos">
-      <img src="foto1.jpeg" alt="Foto 1">
-      <img src="foto2.jpeg" alt="Foto 2">
-    </div>
+    <!-- Música hospedada no GitHub Pages -->
+    <audio id="bgMusic" controls preload="auto">
+        <source src="assets/musica.mp3" type="audio/mpeg">
+    </audio>
 
-    <div class="footer">
-      Para sempre seu, Well 💍
+    <div class="assinatura">Para sempre seu, Well 💍</div>
+</div>
+
+<script>
+  const audio = document.getElementById("bgMusic");
+
+  // Quando o usuário apertar play, começa no segundo 20
+  audio.addEventListener("play", () => {
+    if (audio.currentTime < 20) {
+      audio.currentTime = 20;
+    }
+  });
+</script>
+
+</body>
+</html>

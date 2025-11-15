@@ -1,96 +1,123 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Para Sempre Seu, Well 💍</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Minha Cartinha de Amor</title>
+
+<!-- Google Font (cursiva elegante) -->
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
 <style>
-    body {
-        margin: 0;
-        padding: 0;
-        background: #fdfdfd;
-        font-family: "Cormorant Garamond", serif;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        text-align: center;
-        overflow: hidden;
-    }
+  body {
+    margin: 0;
+    padding: 0;
+    background: #fafafa;
+    font-family: "Inter", sans-serif;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
 
-    .container {
-        max-width: 800px;
-        padding: 40px;
-        background: rgba(255, 255, 255, 0.7);
-        border-radius: 20px;
-        box-shadow: 0 0 50px rgba(0,0,0,0.15);
-        backdrop-filter: blur(10px);
-    }
+  .card {
+    width: 100%;
+    max-width: 860px;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.12);
+    box-sizing: border-box;
+  }
 
-    h1 {
-        font-size: 3rem;
-        font-family: "Dancing Script", cursive;
-        margin-bottom: 20px;
-        color: #222;
-        text-shadow: 0 2px 6px rgba(0,0,0,0.15);
-    }
+  h1 {
+    font-family: "Great Vibes", cursive;
+    font-size: 48px;
+    margin: 0;
+    text-align: center;
+    color: #222;
+  }
 
-    p {
-        font-size: 1.4rem;
-        line-height: 1.5;
-        color: #444;
-        margin-bottom: 30px;
-        font-family: "Cormorant Garamond", serif;
-    }
+  p.msg {
+    font-size: 20px;
+    margin-top: 30px;
+    line-height: 1.55;
+    font-family: "Inter", sans-serif;
+    text-align: center;
+  }
 
-    .assinatura {
-        font-family: "Dancing Script", cursive;
-        font-size: 2rem;
-        margin-top: 30px;
-        opacity: 0.8;
-    }
+  .photos {
+    display: flex;
+    gap: 20px;
+    margin-top: 35px;
+    justify-content: center;
+  }
 
-    audio {
-        width: 100%;
-        margin-top: 25px;
-    }
+  .photos img {
+    width: 48%;
+    border-radius: 16px;
+    object-fit: cover;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  }
+
+  .video-wrap {
+    margin-top: 40px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    position: relative;
+    padding-top: 56.25%;
+  }
+
+  .video-wrap iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  .footer {
+    margin-top: 40px;
+    text-align: center;
+    font-size: 16px;
+    opacity: 0.65;
+  }
+
 </style>
-
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Cormorant+Garamond:wght@300;400&display=swap" rel="stylesheet">
-
 </head>
+
 <body>
+  <div class="card">
 
-<div class="container">
-    <h1>Para Sempre Seu 💍</h1>
+    <h1>Para o meu amor</h1>
 
-    <p>
-        Nada no mundo explica o que sinto por você.<br>
-        É simples, profundo, e ao mesmo tempo imenso demais.<br>
-        Cada detalhe seu se tornou parte do que sou hoje.<br>
-        E se existe algo que quero para sempre…<br>
-        É você.
+    <p class="msg">
+      Você é a pessoa com quem eu quero ter um milhão de aventuras, dançar na cozinha,
+      assistir ao pôr do sol, fazer café da manhã juntos aos domingos de manhã, ir à igreja
+      lado a lado, orar juntos com propósito, correr para o seu abraço depois de um longo
+      dia de trabalho, conquistar os meus maiores sonhos ao seu lado, e me apaixonar
+      novamente por você todos os dias da minha vida.
     </p>
 
-    <!-- Música hospedada no GitHub Pages -->
-    <audio id="bgMusic" controls preload="auto">
-        <source src="assets/musica.mp3" type="audio/mpeg">
-    </audio>
+    <div class="photos">
+      <img src="foto1.jpeg" alt="Foto 1">
+      <img src="foto2.jpeg" alt="Foto 2">
+    </div>
 
-    <div class="assinatura">Para sempre seu, Well 💍</div>
-</div>
+    <div class="video-wrap">
+      <iframe
+        src="https://www.youtube.com/embed/_XwaprP82cE?start=20&autoplay=1&controls=1&rel=0"
+        allow="autoplay; encrypted-media" allowfullscreen>
+      </iframe>
+    </div>
 
-<script>
-  const audio = document.getElementById("bgMusic");
+    <div class="footer">
+      Com todo o meu carinho ❤️
+    </div>
 
-  // Quando o usuário apertar play, começa no segundo 20
-  audio.addEventListener("play", () => {
-    if (audio.currentTime < 20) {
-      audio.currentTime = 20;
-    }
-  });
-</script>
-
+  </div>
 </body>
 </html>

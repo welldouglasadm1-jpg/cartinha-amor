@@ -12,86 +12,73 @@
   body {
     margin: 0;
     padding: 0;
-    background: #fafafa;
+    background: #f5f3f7;
     font-family: "Inter", sans-serif;
     color: #333;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
   }
 
   .card {
     width: 100%;
-    max-width: 860px;
+    max-width: 900px;
+    padding: 60px 50px;
     background: #ffffff;
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.12);
+    border-radius: 28px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.12);
     box-sizing: border-box;
+    text-align: center;
   }
 
   h1 {
     font-family: "Great Vibes", cursive;
-    font-size: 48px;
+    font-size: 60px;
     margin: 0;
-    text-align: center;
     color: #222;
   }
 
   p.msg {
-    font-size: 20px;
-    margin-top: 30px;
-    line-height: 1.55;
-    font-family: "Inter", sans-serif;
-    text-align: center;
+    margin-top: 35px;
+    font-size: 22px;
+    line-height: 1.65;
+    padding: 0 10px;
   }
 
   .photos {
     display: flex;
-    gap: 20px;
-    margin-top: 35px;
+    gap: 24px;
+    margin-top: 45px;
     justify-content: center;
   }
 
   .photos img {
-    width: 48%;
-    border-radius: 16px;
+    width: 47%;
+    border-radius: 18px;
     object-fit: cover;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
   }
 
-  .video-wrap {
-    margin-top: 40px;
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-    position: relative;
-    padding-top: 56.25%;
-  }
-
-  .video-wrap iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
-  }
-
+  /* Assinatura */
   .footer {
-    margin-top: 40px;
-    text-align: center;
-    font-size: 24px;
+    margin-top: 55px;
+    font-size: 32px;
     font-family: "Great Vibes", cursive;
     color: #222;
+    opacity: 0;
+    animation: fadeIn 2.5s ease forwards 1.5s;
+  }
+
+  @keyframes fadeIn {
+    to { opacity: 1; }
   }
 </style>
 </head>
 
 <body>
-  <div class="card">
 
+  <div class="card">
     <h1>Para o meu amor</h1>
 
     <p class="msg">
@@ -107,18 +94,31 @@
       <img src="foto2.jpeg" alt="Foto 2">
     </div>
 
-    <div class="video-wrap">
-      <iframe
-        src="https://www.youtube.com/embed/_XwaprP82cE?start=20&autoplay=1&mute=1&controls=1&rel=0"
-        allow="autoplay; encrypted-media"
-        allowfullscreen>
-      </iframe>
-    </div>
-
     <div class="footer">
       Para sempre seu, Well 💍
     </div>
-
   </div>
+
+  <!-- Música local começando no 00:20 -->
+  <audio id="bgMusic" preload="auto">
+    <source src="assets/music.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    const audio = document.getElementById("bgMusic");
+
+    // Iniciar música no segundo 20
+    audio.addEventListener("canplaythrough", () => {
+      audio.currentTime = 20;
+      audio.play().catch(() => {
+        // Se o navegador bloquear autoplay, habilita play após primeiro toque na tela
+        document.body.addEventListener("click", () => {
+          audio.currentTime = 20;
+          audio.play();
+        }, { once: true });
+      });
+    });
+  </script>
+
 </body>
 </html>

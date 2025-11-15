@@ -1,29 +1,127 @@
-<audio id="bgMusic" preload="auto" autoplay muted>
-    <source src="assets/music.mp3" type="audio/mpeg">
-</audio>
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Minha Cartinha de Amor</title>
 
-<script>
-  const audio = document.getElementById("bgMusic");
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
-  audio.addEventListener("canplaythrough", () => {
-    audio.currentTime = 20;
-    audio.play();
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background: #f5f3f7;
+    font-family: "Inter", sans-serif;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-    // Desmutar suavemente após 1 segundo
-    setTimeout(() => {
-      let vol = 0;
-      audio.volume = 0;
+  .card {
+    width: 100%;
+    max-width: 900px;
+    padding: 60px 50px;
+    background: #ffffff;
+    border-radius: 28px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+    box-sizing: border-box;
+    text-align: center;
+  }
 
-      const fade = setInterval(() => {
-        if (vol < 1) {
-          vol += 0.05;
-          audio.volume = vol;
-        } else {
-          clearInterval(fade);
-        }
-      }, 150);
-      
-      audio.muted = false;
-    }, 1000);
-  });
-</script>
+  h1 {
+    font-family: "Great Vibes", cursive;
+    font-size: 60px;
+    margin: 0;
+    color: #222;
+  }
+
+  p.msg {
+    margin-top: 35px;
+    font-size: 22px;
+    line-height: 1.65;
+    padding: 0 10px;
+  }
+
+  .photos {
+    display: flex;
+    gap: 24px;
+    margin-top: 45px;
+    justify-content: center;
+  }
+
+  .photos img {
+    width: 47%;
+    border-radius: 18px;
+    object-fit: cover;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  }
+
+  .footer {
+    margin-top: 55px;
+    font-size: 32px;
+    font-family: "Great Vibes", cursive;
+    color: #222;
+    opacity: 0;
+    animation: fadeIn 2.5s ease forwards 1.5s;
+  }
+
+  @keyframes fadeIn {
+    to { opacity: 1; }
+  }
+</style>
+</head>
+
+<body>
+
+  <div class="card">
+    <h1>Para o meu amor</h1>
+
+    <p class="msg">
+      Você é a pessoa com quem eu quero ter um milhão de aventuras, dançar na cozinha,
+      assistir ao pôr do sol, fazer café da manhã juntos aos domingos de manhã, ir à igreja
+      lado a lado, orar juntos com propósito, correr para o seu abraço depois de um longo
+      dia de trabalho, conquistar os meus maiores sonhos ao seu lado, e me apaixonar
+      novamente por você todos os dias da minha vida.
+    </p>
+
+    <div class="photos">
+      <img src="foto1.jpeg" alt="Foto 1">
+      <img src="foto2.jpeg" alt="Foto 2">
+    </div>
+
+    <div class="footer">
+      Para sempre seu, Well 💍
+    </div>
+  </div>
+
+  <!-- Música online -->
+  <audio id="bgMusic" preload="auto" autoplay>
+    <source src="https://li.oitube.com/ID6VFB" type="audio/mpeg">
+  </audio>
+
+  <script>
+    const audio = document.getElementById("bgMusic");
+
+    // Ajusta para iniciar no segundo 20
+    audio.addEventListener("loadedmetadata", () => {
+      audio.currentTime = 20;
+    });
+
+    // Tenta tocar assim que possível
+    audio.addEventListener("canplay", () => {
+      const attempt = audio.play();
+      if (attempt !== undefined) {
+        attempt.catch(() => {
+          // Caso o navegador bloqueie o autoplay
+          document.body.addEventListener("click", () => {
+            audio.currentTime = 20;
+            audio.play();
+          }, { once: true });
+        });
+      }
+    });
+  </
